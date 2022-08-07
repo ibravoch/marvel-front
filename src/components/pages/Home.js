@@ -25,6 +25,7 @@ const Home = ({ search, setSearch }) => {
     <h1>En cours de chargement</h1>
   ) : (
     <div>
+      <h2>Voici les {data.count} personnages marvel</h2>
       <div className="main">
         {data.results
           .filter((filtre) =>

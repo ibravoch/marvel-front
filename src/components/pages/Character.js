@@ -22,23 +22,26 @@ const Character = ({ search, setSearch }) => {
   return isLoading === true ? (
     <h1 className="loading">En cours de chargement</h1>
   ) : (
-    <div className="main">
-      {data.comics
-        .filter((filtre) =>
-          filtre.title.toLowerCase().includes(search.toLowerCase())
-        )
-        .map((elem, index) => {
-          return (
-            <div key={index} className="fiche">
-              <img
-                alt="actionman"
-                src={elem.thumbnail.path + "." + elem.thumbnail.extension}
-              />
-              <h3> {elem.title}</h3>
-              <p>{elem.description} </p>
-            </div>
-          );
-        })}
+    <div>
+      <h2>Lise des films du personnage {data.name}</h2>
+      <div className="main">
+        {data.comics
+          .filter((filtre) =>
+            filtre.title.toLowerCase().includes(search.toLowerCase())
+          )
+          .map((elem, index) => {
+            return (
+              <div key={index} className="fiche">
+                <img
+                  alt="actionman"
+                  src={elem.thumbnail.path + "." + elem.thumbnail.extension}
+                />
+                <h3> {elem.title}</h3>
+                <p>{elem.description} </p>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };
