@@ -18,7 +18,7 @@ function App() {
       <Header search={search} setSearch={setSearch} />
       <Routes>
         <Route
-          path="/characters"
+          path="/"
           element={<Characters search={search} setSearch={setSearch} />}
         />
         <Route
