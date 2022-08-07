@@ -31,7 +31,7 @@ const Character = ({ search, setSearch }) => {
           return (
             <div key={index} className="fiche">
               <img
-                alt="image-photo"
+                alt="actionman"
                 src={elem.thumbnail.path + "." + elem.thumbnail.extension}
               />
               <h3> {elem.title}</h3>

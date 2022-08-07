@@ -1,25 +1,25 @@
 import axios from "axios";
-import { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Home = ({ search, setSearch }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(0);
-  const [limit, setLimit] = useState(100);
+
   //const [counter, setCounter] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://marvel-nodeback.herokuapp.com/characters?limit=${limit}&skip=${page}`
+        `https://marvel-nodeback.herokuapp.com/characters?limit=100&skip=${page}`
       );
 
       setData(response.data);
       setIsLoading(false);
     };
     fetchData();
-  }, [page, limit]);
+  }, [page]);
 
   return isLoading === true ? (
     <h1>En cours de chargement</h1>
@@ -35,7 +35,7 @@ const Home = ({ search, setSearch }) => {
               <Link to={`/comics/${character._id}`}>
                 <section className="fiche" key={index}>
                   <img
-                    alt="personnage-image"
+                    alt="personnage"
                     src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                   />
 

@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import { Link } from "react-router-dom";
-
 const Comics = ({ search, setSearch }) => {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +30,7 @@ const Comics = ({ search, setSearch }) => {
             return (
               <div className="fiche" key={index}>
                 <img
-                  alt="image-comics"
+                  alt="comics"
                   src={elem.thumbnail.path + "." + elem.thumbnail.extension}
                 />{" "}
                 <h3>{elem.title}</h3>
