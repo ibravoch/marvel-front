@@ -8,7 +8,7 @@ const Header = ({ search, setSearch }) => {
         alt="logo"
         src={marvel}
         onClick={() => {
-          navigate("/characters");
+          navigate("/");
         }}
       />
       <input
