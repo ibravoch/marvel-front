@@ -35,7 +35,13 @@ const Header = ({ search, setSearch }) => {
           >
             Comics
           </li>
-          <li>Favoris</li>
+          <li
+            onClick={() => {
+              navigate("/favoris");
+            }}
+          >
+            Favoris
+          </li>
         </ul>
       </nav>
     </div>

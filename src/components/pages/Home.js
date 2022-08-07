@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Home = ({ search, setSearch }) => {
+const Home = ({ search, setSearch, like, setLike }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(0);
@@ -25,7 +25,11 @@ const Home = ({ search, setSearch }) => {
     <h1>En cours de chargement</h1>
   ) : (
     <div>
+      <div>
+        <p>{like}</p>
+      </div>
       <h2>Voici les {data.count} personnages marvel</h2>
+
       <div className="main">
         {data.results
           .filter((filtre) =>
@@ -33,20 +37,27 @@ const Home = ({ search, setSearch }) => {
           )
           .map((character, index) => {
             return (
-              <Link to={`/comics/${character._id}`}>
-                <section className="fiche" key={index}>
-                  <img
-                    alt="personnage"
-                    src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                  />
-
+              <section className="fiche" key={index}>
+                <img
+                  alt="personnage"
+                  src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                />
+                <Link to={`/comics/${character._id}`}>
                   <h3>{character.name}</h3>
-                  <p>{character.description}</p>
-                  <div className="position">
-                    <p>+</p>
-                  </div>
-                </section>
-              </Link>
+                </Link>
+                <p>{character.description}</p>
+                <div className="position">
+                  <button
+                    onClick={() => {
+                      const newLike = [...like];
+                      newLike.push(character.name);
+                      setLike(newLike);
+                    }}
+                  >
+                    +
+                  </button>
+                </div>
+              </section>
             );
           })}
       </div>
