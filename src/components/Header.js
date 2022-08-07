@@ -5,9 +5,10 @@ const Header = ({ search, setSearch }) => {
   return (
     <div className="header">
       <img
+        alt="logo"
         src={marvel}
         onClick={() => {
-          navigate("/");
+          navigate("/characters");
         }}
       />
       <input
@@ -20,8 +21,20 @@ const Header = ({ search, setSearch }) => {
       />
       <nav>
         <ul>
-          <li>Personnages</li>
-          <li>Comics</li>
+          <li
+            onClick={() => {
+              navigate("/characters");
+            }}
+          >
+            Personnages
+          </li>
+          <li
+            onClick={() => {
+              navigate("/comics");
+            }}
+          >
+            Comics
+          </li>
           <li>Favoris</li>
         </ul>
       </nav>
