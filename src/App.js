@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 // import pages
-import Characters from "./components/pages/Characters";
+import Home from "./components/pages/Home";
 import Character from "./components/pages/Character";
 import NotpageFound from "./components/pages/NotpageFound";
 import Comics from "./components/pages/Comics";
@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Characters search={search} setSearch={setSearch} />}
+          element={<Home search={search} setSearch={setSearch} />}
         />
         <Route
           path="/comics/:characterId"
