@@ -12,7 +12,7 @@ const Home = ({ search, setSearch }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://marvel-nodeback.herokuapp.com/characters?limit=100&skip=${page}`
+        `https://marvel-nodeback.herokuapp.com/?limit=100&skip=${page}`
       );
 
       setData(response.data);
