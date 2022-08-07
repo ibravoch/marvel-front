@@ -23,7 +23,7 @@ const Header = ({ search, setSearch }) => {
         <ul>
           <li
             onClick={() => {
-              navigate("/characters");
+              navigate("/");
             }}
           >
             Personnages
